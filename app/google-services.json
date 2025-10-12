@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "716147037313",
+    "project_id": "changdpa202502",
+    "storage_bucket": "changdpa202502.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716147037313:android:1a7ea882b2ae53a4ff2980",
+        "android_client_info": {
+          "package_name": "dev.luischang.appdpa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwK6lRCUVz232xj1lfhAt4C2K5EKAD5HA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

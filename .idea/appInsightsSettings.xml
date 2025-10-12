@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="dev.luischang.appdpa" />
+                  <option name="mobileSdkAppId" value="1:716147037313:android:1a7ea882b2ae53a4ff2980" />
+                  <option name="projectId" value="changdpa202502" />
+                  <option name="projectNumber" value="716147037313" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
