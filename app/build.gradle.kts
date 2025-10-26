@@ -67,4 +67,13 @@ dependencies {
 
     //Firebase BoM
     implementation(platform("com.google.firebase:firebase-bom:34.3.0"))
+
+    //Retrofit
+    //implementation("com.squareup.retrofit2:retrofit:3.1.0-SNAPSHOT")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+
+
+
 }
