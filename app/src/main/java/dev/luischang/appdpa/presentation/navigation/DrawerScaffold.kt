@@ -68,6 +68,15 @@ fun DrawerScaffold(navController: NavController, content: @Composable () -> Unit
                         scope.launch { drawerState.close() }
                     }
                 )
+
+                NavigationDrawerItem(
+                    label =  { Text("Api Football")},
+                    selected = false,
+                    onClick = {
+                        navController.navigate("football")
+                        scope.launch { drawerState.close() }
+                    }
+                )
             }
         }
 
