@@ -1,6 +1,9 @@
 package dev.luischang.appdpa.presentation.apifootball
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,6 +21,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -29,13 +33,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.modifier.modifierLocalOf
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ApiFootballScreen(viewModel: ApiFootballViewModel = viewModel()){
 
@@ -46,6 +49,7 @@ fun ApiFootballScreen(viewModel: ApiFootballViewModel = viewModel()){
     val errorMessage by viewModel.errorMessage.collectAsState()
 
     var expanded by remember {mutableStateOf(false)}
+    val context = LocalContext.current
 
     Column (modifier = Modifier.fillMaxSize().padding(16.dp))
     {
@@ -85,7 +89,18 @@ fun ApiFootballScreen(viewModel: ApiFootballViewModel = viewModel()){
                 {
                     items(teams) { wrapper ->
                         Card(
-                            modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 4.dp)
+                                .clickable {
+                                    val query = wrapper.team.name
+                                    val intent =
+                                        Intent(
+                                            Intent.ACTION_VIEW,
+                                            Uri.parse("https://www.google.com/search?q=$query")
+                                        )
+                                    context.startActivity(intent)
+                                }
                         ) {
                             Row(modifier = Modifier.padding(12.dp))
                             {
