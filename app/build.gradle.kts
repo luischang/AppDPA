@@ -1,9 +1,19 @@
+import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("com.google.gms.google-services")
 }
+
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if(file.exists())
+        load(file.inputStream())
+}
+
+val apiFootballKey = localProperties.getProperty("API_FOOTBALL_KEY")?:""
+
 
 android {
     namespace = "dev.luischang.appdpa"
@@ -17,6 +27,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // This is the correct line
+        buildConfigField("String", "API_FOOTBALL_KEY", "\"$apiFootballKey\"")
     }
 
     buildTypes {
@@ -37,6 +50,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
