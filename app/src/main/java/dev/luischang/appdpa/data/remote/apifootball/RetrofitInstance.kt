@@ -1,16 +1,22 @@
 package dev.luischang.appdpa.data.remote.apifootball
 
+import androidx.credentials.exceptions.domerrors.TimeoutError
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import dev.luischang.appdpa.BuildConfig
+import java.util.concurrent.TimeUnit
 
 private const val BASE_URL = "https://v3.football.api-sports.io/"
 
 object RetrofitInstance {
 
     private val client = OkHttpClient.Builder()
+        .retryOnConnectionFailure(true)
+        .connectTimeout(30, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
+        .writeTimeout(30, TimeUnit.SECONDS)
         .addInterceptor(Interceptor{ chain->
             val request = chain.request().newBuilder()
                 .addHeader("x-apisports-key", BuildConfig.API_FOOTBALL_KEY)

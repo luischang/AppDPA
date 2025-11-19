@@ -77,6 +77,15 @@ fun DrawerScaffold(navController: NavController, content: @Composable () -> Unit
                         scope.launch { drawerState.close() }
                     }
                 )
+
+                NavigationDrawerItem(
+                    label =  { Text("Gemini chat")},
+                    selected = false,
+                    onClick = {
+                        navController.navigate("chat")
+                        scope.launch { drawerState.close() }
+                    }
+                )
             }
         }
 

@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import dev.luischang.appdpa.presentation.apifootball.ApiFootballScreen
 import dev.luischang.appdpa.presentation.auth.LoginScreen
 import dev.luischang.appdpa.presentation.auth.RegisterScreen
+import dev.luischang.appdpa.presentation.chat.GeminiChatScreen
 import dev.luischang.appdpa.presentation.home.HomeScreen
 import dev.luischang.appdpa.presentation.permissions.GalleryPermissionScreen
 
@@ -37,6 +38,11 @@ fun AppNavGraph(){
         composable ("football") {
             DrawerScaffold(navController) {
                 ApiFootballScreen()
+            }
+        }
+        composable ("chat") {
+            DrawerScaffold(navController) {
+                GeminiChatScreen("AIzaSyAnWwywkft6cdKSgqBywXGvy1KqxW37km0")
             }
         }
     }
